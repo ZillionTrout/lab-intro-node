@@ -38,15 +38,19 @@ class SortedList {
   }
 
   sum() {
-  this.sum =this.items.reduce(function(total, current) { 
-  return total + current
+  this.sum =this.items.reduce(function(a, b) { 
+  return a + b
 }, 0)
 return this.sum
 }
 
   avg() {
+    if (this.length > 0) {
+      return this.items.reduce((a, b) => a + b, 0) / this.length;
+    } else {
     throw new Error('EmptySortedList')
   }
+}
 }
 
 module.exports = SortedList;
